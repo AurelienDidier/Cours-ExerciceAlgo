@@ -9,7 +9,7 @@ def oppose(a):
 
 def waitInteger():
     try:
-        int(input())
+        int(input("Entrer un nombre entier: "))
         return True
     except ValueError:
         return False
