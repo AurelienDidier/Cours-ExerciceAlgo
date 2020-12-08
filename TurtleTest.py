@@ -14,3 +14,6 @@ while True:
     turn(man)
     man.forward(5)
 
+"""def turn(man):
+    man.left(random.randint(0,360))
+"""
