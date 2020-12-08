@@ -53,6 +53,42 @@ def guessNumber():
             print("C'est plus.")
         if (var>toGuess):
             print("C'est moins.")
-    print("Gagné!")
+    print("Gagné en "+ str(count) + " coup!")
 
-guessNumber()
+#guessNumber()
+
+#B
+
+def first(list):
+    return list[0]
+
+def last(list):
+    return list[-1]
+
+def initListe(n):
+    return list(range(0,n+1))
+
+def contain(list,n):
+    for i in liste:
+        if i==n:
+            return True
+    return False
+
+def mean(list):
+    res=0
+    for i in list:
+        res+=i
+    return res/len(list)
+
+def occurs(list,n):
+    occ=0
+    for i in list:
+        if i==n:
+            occ+=1
+    return occ
+
+def contains(list1,list2):
+    for i in list2:
+        if not contain(list1,i):
+            return False
+    return True
