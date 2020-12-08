@@ -92,3 +92,13 @@ def contains(list1,list2):
         if not contain(list1,i):
             return False
     return True
+
+def initMultTable(n):
+    list=[]
+    for i in range(n):
+        list.append([])
+        for j in range(n):
+            list[i].append(i*j)
+    return list
+
+#print(initMultTable(5))
