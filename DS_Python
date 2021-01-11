@@ -60,10 +60,7 @@ import turtle, random
 
 def turn(tortue):
     x = random.randint(0,2)
-    if x == 0:
-        tortue.left(90)
-    elif x == 1:
-        tortue.left(-90)
+    tortue.left(random.randint(-90,90))
 
 def colision(liste,t):
     for i in liste:
