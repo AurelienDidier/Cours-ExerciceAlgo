@@ -56,4 +56,53 @@ def rechercheDiRec(list,elem,indice):
 print(rechercheDiRec([1,2,4,7,9,11,13,15,19,21,27,31,33,37,41,48,51,55,59,60],2,0))
 
 #Exercice 3
+import turtle, random
+
+def turn(tortue):
+    x = random.randint(0,2)
+    if x == 0:
+        tortue.left(90)
+    elif x == 1:
+        tortue.left(-90)
+
+def colision(liste,t):
+    for i in liste:
+        if ((abs(i.xcor() - t.xcor()) < t.width()*4 
+        and abs(i.ycor() - t.ycor()) < t.width()*4)
+        or (abs(i.xcor() - t.xcor()) < i.width()*4 
+        and abs(i.ycor() - t.ycor()) < i.width()*4)):
+            if i == t:
+                continue
+            if (i.width()<t.width()):
+                    liste.remove(i)
+                    i.hideturtle()
+                    t.width((i.width()+t.width()))
+            else :
+                    liste.remove(t)
+                    t.hideturtle()
+                    i.width((i.width()+t.width()))
+
+def createTurtle(nbre):
+    liste=[]
+    for i in range(nbre):
+        x=turtle.Turtle()
+        x.speed(0)
+        x.penup()
+        x.color(random.random(),random.random(),random.random())
+        x.shape("turtle")
+        x.setx(random.randint(-200,200))
+        x.sety(random.randint(-200,200))
+        x.resizemode("auto")
+        liste.append(x)
+    return liste
+
+initSize=1
+turtle.delay(0)
+liste=createTurtle(50)
+while True:
+    for i in liste:
+        turn(i)
+        i.forward(5)
+        colision(liste,i)
+
 
