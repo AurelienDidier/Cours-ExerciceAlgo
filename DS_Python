@@ -1,0 +1,59 @@
+#Exercice 1
+for i in range (1,100):
+    div3 = i%3==0
+    div5 = i%5==0
+    if (div3 and div5):
+        print("FizzBuzz")
+    elif (div3):
+        print("Fizz")
+    elif (div5):
+        print("Buzz")
+    else:
+        print(i)
+
+
+#Exercice 2 (version iterative et récursive)
+
+def recherche(list,elem):
+    for i,j in enumerate(list):
+        if j==elem:
+            return i
+    return -1
+
+#print(recherche([1,2,4,7],5))
+
+def recherchedi(list,elem):
+    debut=0
+    fin=len(list)-1
+    mid=(debut+fin)//2
+    while debut<mid:
+        if (elem<list[debut] or elem>list[fin]):
+            return -1
+        if (elem==list[mid]):
+            return mid
+        if (elem>list[mid]):
+            debut=mid
+        else:
+            fin=mid
+        mid=(debut+fin)//2
+    return -1
+
+#print(recherchedi([1,2,4,7],5))
+
+def rechercheDiRec(list,elem,indice):
+        mid=len(list)//2
+        if (len(list)==1 and list[0]!=elem):
+            return -1
+        if (elem<list[0] or elem>list[len(list)-1]):
+            return -1
+        if (elem==list[mid]):
+            return indice+mid
+        if (elem>list[mid]):
+            return rechercheDiRec(list[mid:],elem,indice+mid)
+        else:
+            return rechercheDiRec(list[:mid],elem,indice)
+
+print(rechercheDiRec([1,2,4,7,9,11,13,15,19,21,27,31,33,37,41,48,51,55,59,60],2,0))
+
+#Exercice 3
+
