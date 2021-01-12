@@ -37,8 +37,29 @@ def recherchedi(list,elem):
             fin=mid
         mid=(debut+fin)//2
     return -1
+ 
+def rechercheDicho(list,elem):
+    debut=0
+    fin=len(list)-1
+    continu=True
+    while(continu):
+        mid=(debut+fin)//2
+        if (list[debut]>elem or list[fin]<elem):
+            return -1
+        if (list[mid]>elem):
+            fin=mid
+        elif (list[mid]==elem):
+            return mid
+        else:
+            debut=mid
+
+print(rechercheDicho([1,2,4,5,8,9,10], 15 ))
+
 
 #print(recherchedi([1,2,4,7],5))
+
+
+print(rechercheDicho([1,2,4,5,7,9,11,15,18,22],10))
 
 def rechercheDiRec(list,elem,indice):
         mid=len(list)//2
@@ -53,7 +74,10 @@ def rechercheDiRec(list,elem,indice):
         else:
             return rechercheDiRec(list[:mid],elem,indice)
 
-print(rechercheDiRec([1,2,4,7,9,11,13,15,19,21,27,31,33,37,41,48,51,55,59,60],2,0))
+def rechercheDiRec(list,elem):
+    return rechercheDiRec(list,elem,0)
+
+print(rechercheDiRec([1,2,4,7,9,11,13,15,19,21,27,31,33,37,41,48,51,55,59,60],2))
 
 #Exercice 3
 import turtle, random
